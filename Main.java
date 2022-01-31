@@ -413,40 +413,79 @@ public class Main {
 
     public static void displayPastOrder(int numberOfOrder, int[] orderID, String[] restaurant, String[] date, double[] amount) {
         int c = 0;    // for row
-        int a = 0;    // for column
+        int a = 0; // for column
+        char e = 0;
+
         boolean check = true;    // check if got ordered history or not
         String[][] res = new String[numberOfOrder][numberOfOrder];
         String[][] d = new String[numberOfOrder][numberOfOrder];
         double[][] paid = new double[numberOfOrder][numberOfOrder];
         int[] n = new int[numberOfOrder];
 
-        System.out.print("ENTER CUSTOMER ID: ");
-        n[c] = scan.nextInt();
-        for (int i = 0; i < numberOfOrder; i++) {
-            if (n[c] == orderID[i]) {
-                res[c][a] = restaurant[i];
-                d[c][a] = date[i];
-                paid[c][a] = amount[i];
-                a++;
+        do {
+            try {
+                System.out.print("ENTER CUSTOMER ID: ");
+                n[c] = scan.nextInt();
+            } catch (InputMismatchException q) {
+                System.out.println("Please enter integer only");
+                scan.nextLine();
+                displayPastOrder(numberOfOrder, orderID, restaurant, date, amount);
+            } catch (Exception q) {
+                System.out.println("Something Went  Wrong");
+                scan.nextLine();
+                displayPastOrder(numberOfOrder, orderID, restaurant, date, amount);
             }
-        }
-        for (int i = 0; i < res[c].length; i++) {
-            for (int j = 0; j < res[c].length; j++) {
-                if (res[i][j] != null && d[i][j] != null) {
-                    System.out.println("");
-                    System.out.printf("%33s%n","PAYMENT RECEIPTS");
-                    System.out.println("-------------------------------------------------------------");
-                    System.out.println("RESTAURANT      : " + res[i][j]);
-                    System.out.println("DATE ORDERED    : " + d[i][j]);
-                    System.out.printf("AMOUNT PAID     : RM%.2f%n", paid[i][j]);
-                    System.out.println("-------------------------------------------------------------");
-                    check = false;
+
+            for (int i = 0; i < numberOfOrder; i++) {
+                if (n[c] == orderID[i]) {
+                    res[c][a] = restaurant[i];
+                    d[c][a] = date[i];
+                    paid[c][a] = amount[i];
+                    a++;
                 }
             }
-        }
-        if (check) {
-            System.out.println("No history found!");
-        }
-        c++;
+
+            for (int i = 0; i < res[c].length; i++) {
+                for (int j = 0; j < res[c].length; j++) {
+                    if (res[i][j] != null && d[i][j] != null) {
+                        System.out.println("");
+                        System.out.printf("%33s%n", "PAYMENT RECEIPTS");
+                        System.out.println("-------------------------------------------------------------");
+                        System.out.println("RESTAURANT      : " + res[i][j]);
+                        System.out.println("DATE ORDERED    : " + d[i][j]);
+                        System.out.printf("AMOUNT PAID     : RM%.2f%n", paid[i][j]);
+                        System.out.println("-------------------------------------------------------------");
+                        check = false;
+                    }
+                }
+            }
+            if (check) {
+                System.out.println("");
+                System.out.println("No history found!");
+                System.out.println("");
+            }
+
+            c++;
+
+            System.out.print("Enter Y to Continue or N to Quit> ");
+            e = scan.next().charAt(0);
+            if (e == 'y' || e == 'Y') {
+                c--; // to avoid index out of bounds since c++ cause the next ID store in second index of array (1) instead of first (0)
+            } else if (e == 'n' || e == 'N') {
+                System.out.println("*************************************************************");
+                System.out.printf("%40s%n", "---- DONE ----");
+                System.out.println("*************************************************************");
+                System.out.println("");
+                break;
+
+            } else {
+                while (e != 'y' && e != 'Y' && e != 'n' && e != 'N') {
+                    System.out.println("Invalid");
+                    System.out.print("Enter Y to Continue or N to Quit> ");
+                    e = scan.next().charAt(0);
+                }
+            }
+        } while (e == 'y' || e == 'Y' || e == 'n' || e == 'N');
+
     }
 }
