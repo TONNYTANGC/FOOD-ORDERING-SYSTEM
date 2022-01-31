@@ -1,5 +1,6 @@
 package GAsg;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ListCust {
@@ -7,6 +8,8 @@ public class ListCust {
     public static void listcustomers(int numOfOrders, int[] ID, int[] orderID, String[] testname, String[] testemail) {
         Scanner scan = new Scanner(System.in);
         char list = 0;
+        boolean error;
+        int pastorder = 0;
         // Q5:List Customers:
         // ask
         // to
@@ -14,11 +17,25 @@ public class ListCust {
         // or
         // not
         // situation of list =y
+
         do {
-            System.out.print("PLEASE ENTER THE NUMBER OF ORDER THAT YOU WISH TO KNOW>");
-            int pastorder = scan.nextInt();
-            // key in user id when order so it can record here
-            // name is same sequence as user id in order id array
+            do {
+                try {
+                    error = false;
+                    System.out.print("PLEASE ENTER THE NUMBER OF ORDER THAT YOU WISH TO KNOW>");
+                    pastorder = scan.nextInt();
+                    // key in user id when order so it can record here
+                    // name is same sequence as user id in order id array
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter only with integer.");
+                    scan.nextLine();
+                    error = true;
+                } catch (Exception e) {
+                    System.out.println("Please enter only with integer.");
+                    scan.nextLine();
+                    error = true;
+                }
+            } while (error);
             int total = 0; // calculate how many users have order more than that, display no user if total
             // is 0
 
@@ -70,6 +87,7 @@ public class ListCust {
                 }
             }
         } while (list == 'y' || list == 'Y' || list == 'n' || list == 'N');
+
     }
 
     public static boolean repeatID(int b, int[] orderID, boolean repeat) {
