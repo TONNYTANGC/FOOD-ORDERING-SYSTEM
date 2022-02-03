@@ -79,18 +79,7 @@ public class Main {
                         }
                         break;
 
-                    case 3: // modify customer details
-                        System.out.println("");
-                        if (names[0] == null) { // IF HAVENT REGISTER ANY CUSTOMER
-                            System.out.println("Please Register First Before Login!");
-                            System.out.println("");
-                            // call register method
-                            break;
-                        }
-                        EditCust.modify(ID, names, HomeAddress, EmailAddress, error);
-                        break;
-
-                    case 4: // display customer past orders 
+                    case 3: // display customers' past orders
                         System.out.println("");
                         if (names[0] == null) { // IF HAVENT REGISTER ANY CUSTOMER
                             System.out.println("Please Register First Before Login!");
@@ -104,6 +93,17 @@ public class Main {
                             break;
                         }
                         displayPastOrder(numOfOrders, orderID, customer_restaurant, customer_ordertime, customer_amount);
+                        break;
+
+                    case 4: // modify customer details 
+                        System.out.println("");
+                        if (names[0] == null) { // IF HAVENT REGISTER ANY CUSTOMER
+                            System.out.println("Please Register First Before Login!");
+                            System.out.println("");
+                            // call register method
+                            break;
+                        }
+                        EditCust.modify(ID, names, HomeAddress, EmailAddress, error);
                         break;
 
                     case 5: //list number of customer orders more than x times
