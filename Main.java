@@ -1,4 +1,4 @@
-package GAsg;
+package GROUP2;
 
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
@@ -46,8 +46,8 @@ public class Main {
                     option = scan.nextInt();
                 }
                 switch (option) {
-                    // register new customer
-                    case 1:
+                    
+                    case 1:// register new customer
                         System.out.println("");
                         registerCust(names, ID, HomeAddress, EmailAddress);
                         if (names[names.length - 1] != null) { // IF REGISTERED CUSTOMER EXCEED THE MAX ARRAY'S SIZE
@@ -79,7 +79,7 @@ public class Main {
                         }
                         break;
 
-                    case 3: // display customers' past orders
+                    case 3: // display customer past orders
                         System.out.println("");
                         if (names[0] == null) { // IF HAVENT REGISTER ANY CUSTOMER
                             System.out.println("Please Register First Before Login!");
@@ -95,7 +95,7 @@ public class Main {
                         displayPastOrder(numOfOrders, orderID, customer_restaurant, customer_ordertime, customer_amount);
                         break;
 
-                    case 4: // modify customer details 
+                    case 4:  // modify customer details
                         System.out.println("");
                         if (names[0] == null) { // IF HAVENT REGISTER ANY CUSTOMER
                             System.out.println("Please Register First Before Login!");
