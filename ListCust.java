@@ -1,4 +1,4 @@
-package GAsg;
+package GROUP2;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
