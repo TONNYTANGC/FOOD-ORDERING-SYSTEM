@@ -145,8 +145,8 @@ public class Main {
         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         System.out.println("x 1 : To Register New Customers                             x"); // REGISTER CUSTOMER
         System.out.println("x 2 : To Place New Orders                                   x"); // TAKE NEW ORDERS
-        System.out.println("x 3 : To Modify Customer Details                            x"); // MODIFY CUSTOMER DETAILS
-        System.out.println("x 4 : To Display The Past Orders                            x"); // DSIPLAY CUSTOMER PAST ORDERS
+        System.out.println("x 3 : To Display The Past Orders                            x"); // MODIFY CUSTOMER DETAILS
+        System.out.println("x 4 : To Modify Customer Details                            x"); // DSIPLAY CUSTOMER PAST ORDERS
         System.out.println("x 5 : To List Customer that Ordered More than x Times       x"); // DISPLAY WHICH CUSTOMER ORDERED MORE THAN X TIMES
         System.out.println("x 6 : To Terminate This Program                             x"); // TERMINATE AND EXIT PROGRAM
         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
