@@ -11,7 +11,7 @@ public class EditCust {
         char modify = 0;
         int change = 0, cusID = 0;
         boolean newCus = true;
-
+//comment
         // Q4:Edit Customer:
         // start
         do {
